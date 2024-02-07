@@ -101,6 +101,16 @@ const template = document.querySelector("template");
 // apresentar todas as 10 perguntas no html
 for (const item of perguntas) {
 	const quizItem = template.content.cloneNode(true);
-	quizItem.querySelector('h3').innerHTML = item.pergunta
+	quizItem.querySelector('h3').textContent = item.pergunta;
+	// apresentar as opções de respostas
+	for (let resposta of item.respostas) {
+		const dt = quizItem.querySelector('dl dt').cloneNode(true);
+		dt.querySelector('span').textContent = resposta;
+		// coloca as respostas na tela
+		quizItem.querySelector('dl').appendChild(dt);
+	}
+	// deletar a primeira opção de resposta do template ("Resposta A")
+	quizItem.querySelector('dl dt').remove()
+	// coloca cada pergunta na tela
 	quiz.appendChild(quizItem);
 }
