@@ -95,7 +95,12 @@ const perguntas = [
 	},
 ];
 
-const quiz = document.querySelector('#quiz');
-const template = document.querySelector('template');
-const quizItem = template.content.cloneNode(true);
-quiz.appendChild(quizItem);
+const quiz = document.querySelector("#quiz");
+const template = document.querySelector("template");
+
+// apresentar todas as 10 perguntas no html
+for (const item of perguntas) {
+	const quizItem = template.content.cloneNode(true);
+	quizItem.querySelector('h3').innerHTML = item.pergunta
+	quiz.appendChild(quizItem);
+}
