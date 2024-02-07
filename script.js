@@ -108,6 +108,13 @@ for (const item of perguntas) {
 	for (let resposta of item.respostas) {
 		const dt = quizItem.querySelector('dl dt').cloneNode(true);
 		dt.querySelector('span').textContent = resposta;
+		/*
+		colocar um name para as tres opções de respostas de cada pergunta para que o usuário
+		consiga selecionar uma resposta dentre as três opções, para cada pergunta
+		*/
+		dt.querySelector('input').setAttribute('name', 'pergunta-' + perguntas.indexOf(item));
+		// mudar o valor para o índice de cada resposta dentro de uma pergunta
+		dt.querySelector('input').value = item.respostas.indexOf(resposta);
 		// coloca as respostas na tela
 		quizItem.querySelector('dl').appendChild(dt);
 	}
