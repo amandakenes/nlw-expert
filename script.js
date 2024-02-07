@@ -95,7 +95,9 @@ const perguntas = [
 	},
 ];
 
+// selecionar a div com id de quiz
 const quiz = document.querySelector("#quiz");
+// selecionar o elemento template e tudo que tem dentro dele
 const template = document.querySelector("template");
 
 // apresentar todas as 10 perguntas no html
