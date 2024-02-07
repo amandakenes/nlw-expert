@@ -99,6 +99,7 @@ const perguntas = [
 const quiz = document.querySelector("#quiz");
 // selecionar o elemento template e tudo que tem dentro dele
 const template = document.querySelector("template");
+const corretas = new Set();
 
 // apresentar todas as 10 perguntas no html
 for (const item of perguntas) {
@@ -115,6 +116,15 @@ for (const item of perguntas) {
 		dt.querySelector('input').setAttribute('name', 'pergunta-' + perguntas.indexOf(item));
 		// mudar o valor para o índice de cada resposta dentro de uma pergunta
 		dt.querySelector('input').value = item.respostas.indexOf(resposta);
+		// verificar se o input mudou e se está correto ou não
+		dt.querySelector('input').onchange = /* arrow function */ (event) => {
+			const estaCorreta = event.target.value == item.correta;
+			// para nao contar como acerto caso o usuário mude de uma alternativa certa para errada
+			corretas.delete(item)
+			if (estaCorreta) {
+				corretas.add(item)
+			}
+		}
 		// coloca as respostas na tela
 		quizItem.querySelector('dl').appendChild(dt);
 	}
