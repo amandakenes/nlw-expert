@@ -101,37 +101,41 @@ const quiz = document.querySelector("#quiz");
 const template = document.querySelector("template");
 const corretas = new Set();
 const totalDePerguntas = perguntas.length;
-const mostrarTotal = document.querySelector('#acertos span');
+const mostrarTotal = document.querySelector("#acertos span");
 
 // apresentar todas as 10 perguntas no html
 for (const item of perguntas) {
 	const quizItem = template.content.cloneNode(true);
-	quizItem.querySelector('h3').textContent = item.pergunta;
+	quizItem.querySelector("h3").textContent = item.pergunta;
 	// apresentar as opções de respostas
 	for (let resposta of item.respostas) {
-		const dt = quizItem.querySelector('dl dt').cloneNode(true);
-		dt.querySelector('span').textContent = resposta;
+		const dt = quizItem.querySelector("dl dt").cloneNode(true);
+		dt.querySelector("span").textContent = resposta;
 		/*
 		colocar um name para as tres opções de respostas de cada pergunta para que o usuário
 		consiga selecionar uma resposta dentre as três opções, para cada pergunta
 		*/
-		dt.querySelector('input').setAttribute('name', 'pergunta-' + perguntas.indexOf(item));
+		dt.querySelector("input").setAttribute(
+			"name",
+			"pergunta-" + perguntas.indexOf(item)
+		);
 		// mudar o valor para o índice de cada resposta dentro de uma pergunta
-		dt.querySelector('input').value = item.respostas.indexOf(resposta);
+		dt.querySelector("input").value = item.respostas.indexOf(resposta);
 		// verificar se o input mudou e se está correto ou não
-		dt.querySelector('input').onchange = /* arrow function */ (event) => {
+		dt.querySelector("input").onchange = /* arrow function */ (event) => {
 			const estaCorreta = event.target.value == item.correta;
 			// para nao contar como acerto caso o usuário mude de uma alternativa certa para errada
-			corretas.delete(item)
+			corretas.delete(item);
 			if (estaCorreta) {
-				corretas.add(item)
+				corretas.add(item);
 			}
-		}
+			mostrarTotal.innerHTML = corretas.size + " de " + totalDePerguntas;
+		};
 		// coloca as respostas na tela
-		quizItem.querySelector('dl').appendChild(dt);
+		quizItem.querySelector("dl").appendChild(dt);
 	}
 	// deletar a primeira opção de resposta do template ("Resposta A")
-	quizItem.querySelector('dl dt').remove()
+	quizItem.querySelector("dl dt").remove();
 	// coloca cada pergunta na tela
 	quiz.appendChild(quizItem);
 }
