@@ -100,6 +100,8 @@ const quiz = document.querySelector("#quiz");
 // selecionar o elemento template e tudo que tem dentro dele
 const template = document.querySelector("template");
 const corretas = new Set();
+const totalDePerguntas = perguntas.length;
+const mostrarTotal = document.querySelector('#acertos span');
 
 // apresentar todas as 10 perguntas no html
 for (const item of perguntas) {
