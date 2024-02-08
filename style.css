@@ -59,6 +59,21 @@ input {
     width: 16px;
     height: 16px;
     border-radius: 58%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input:checked {
+    border: 1px solid #A3E635;
+}
+
+input:checked::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #A3E635;
+    border-radius: 58%;
 }
 
 #acertos {
