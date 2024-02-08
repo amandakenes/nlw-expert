@@ -67,6 +67,7 @@ header h1 {
     justify-content: center;
     font-size: 12px;
     border-radius: 58%;
+    flex-shrink: 0;
 }
 
 .quiz-item dl {
