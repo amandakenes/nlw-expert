@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 *, :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -13,6 +16,10 @@ main {
     padding: 20px;
     max-width: 640px;
     margin: 0 auto 64px;
+}
+
+header {
+
 }
 
 #acertos {
