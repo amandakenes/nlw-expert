@@ -17,20 +17,23 @@ body {
 }
 
 main {
-    padding: 10px;
+    padding: 15px;
     max-width: 640px;
     margin: 0 auto 64px;
 }
 
 header {
-    margin-top: 64px;
     padding-bottom: 24px;
     border-bottom: 1px solid #334155;
+    width: 600px;
+    margin: 64px auto 0 auto;
+    text-align: center;
 }
 
 header h1 {
     font-size: 38px;
     color: #f1f5f9;
+    margin-top: 24px;
 }
 
 .quiz-item {
