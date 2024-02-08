@@ -48,8 +48,18 @@ header h1 {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+input {
+    all: unset;
+    border: 1px solid #94a3b8;
+    width: 16px;
+    height: 16px;
+    border-radius: 58%;
+}
 
 #acertos {
     text-align: center;
